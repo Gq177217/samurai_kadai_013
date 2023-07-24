@@ -17,13 +17,13 @@ class TodoController extends Controller {
     public function store(Request $request, Goal $goal) {
         $request->validate([
             'content' => 'required',
-            //'description' => 'nullable|string', // 詳細（description）をバリデーションする。必須でない場合はnullableを追加
+            //'description' => 'nullable|string', // 詳細（description）をバリデーションする。必須でない場合はnullableを追加（削除）
             'description' => 'string',
         ]);
 
         $todo = new Todo();
         $todo->content = $request->input('content');
-        //$todo->description = $validatedData['description']; // 詳細（description）をモデルにセット
+        //$todo->description = $validatedData['description']; // 詳細（description）をモデルにセット（削除）
         $todo->description = $request->input('description');
         $todo->user_id = Auth::id();
         $todo->goal_id = $goal->id;
@@ -45,12 +45,12 @@ class TodoController extends Controller {
     public function update(Request $request, Goal $goal, Todo $todo) {
         $request->validate([
             'content' => 'required',
-            //'description' => 'nullable|string', // 詳細（description）をバリデーションする。必須でない場合はnullableを追加
+            //'description' => 'nullable|string', // 詳細（description）をバリデーションする。必須でない場合はnullableを追加（削除）
             'description' => 'string',
         ]);
 
         $todo->content = $request->input('content');
-        //$todo->description = $validatedData['description']; // 詳細（description）をモデルにセット
+        //$todo->description = $validatedData['description']; // 詳細（description）をモデルにセット（削除）
         $todo->description  = $request->input('description');
         $todo->user_id = Auth::id();
         $todo->goal_id = $goal->id;
