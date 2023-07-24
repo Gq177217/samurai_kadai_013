@@ -18,7 +18,7 @@ class TodoController extends Controller {
         $request->validate([
             'content' => 'required',
             //'description' => 'nullable|string',// 詳細（description）をバリデーションする。必須でない場合はnullableを追加（削除）
-            'description' => 'string',
+            'description' => 'nullable|string',
         ]);
 
         $todo = new Todo();
